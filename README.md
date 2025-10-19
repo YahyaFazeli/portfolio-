@@ -20,31 +20,9 @@ Key Goals:
 
 ## **System Architecture**
 
-```mermaid
-flowchart TB
-    subgraph User Layer
-        WebApp[Web Frontend] --> API Gateway
-        MobileApp[Mobile App] --> API Gateway
-    end
+## System Architecture
 
-    subgraph Backend Layer
-        API Gateway -->|REST/gRPC| AuthService[Auth Service (Keycloak)]
-        API Gateway --> AdService[Vehicle Ads Service]
-        API Gateway --> PricingService[Price Estimation Service]
-        API Gateway --> PaymentService[Payments & Wallets]
-        API Gateway --> NotificationService[SMS/Telegram Notifications]
-    end
-
-    subgraph Data Layer
-        AdService --> SQL[SQL Server / EF Core]
-        PricingService --> SQL
-        PaymentService --> SQL
-        AdService --> ES[Elasticsearch]
-        NotificationService --> Redis[Redis Cache]
-        Logs --> ESLogs[Elasticsearch Logs via Serilog]
-        Media --> MinIO[Media Storage (MinIO/S3)]
-    end
-```
+![System Architecture](https://kroki.io/mermaid/svg/eNp1UsFuwjAMvfMVViWm7TBx2H0SY2VCKxtQth3QDiY1bURoUJJtQtrHzw0tNKjrJbbf80tqv43SP6JA42D50AP--n14s2QgwQMZX_mg9XC_X0V8wtjo0lGZRZ8emuq1VOTRYwgcM9YoPaDYMrslNpxNntDRDx5WEcdQJ7Xe8MsVKZlvKYhhTqDO4PqZDkJp3N401OxEfKdCiuruzDb8mjQzUsgyPzGrnCC2Tu7QSV1e0vGwo9Kd6cfcwhV8oFLkbE180U5upPAaJ3Y6TQdLUpQb3AUM25rIIzpsjSOdJ9w4T_xDeOoDiMcw0qZ5UZyuolghP1hYQiOKur6gTNpV5A8YoSjODYnO7UUTVDX4llhdI5XOm_XJcvLKq2MVhpw2mPOkfXWQ3jWTPgryYlX9P77SSFS9jcSYHdD-2ZEuSxJ-BC0nwe3tfcsHoZEuwQvTVPDvIk6Xg3wxG_22DdPBPJukCwzN0ckI_NDF6DBCL7Snp_GGO_wYQsFdARRqxel_FvSwt8Rpb3VHFZ7X5Yt-y70_EwI4Dg)
 
 ---
 
@@ -101,23 +79,7 @@ flowchart TB
 
 ## **Architecture Diagram (High-Level Overview)**
 
-```mermaid
-graph LR
-    Client[Frontend / Mobile] -->|API Calls| Gateway[API Gateway]
-    Gateway --> AdService[Ads Microservice]
-    Gateway --> PricingService[Pricing Microservice]
-    Gateway --> PaymentService[Payment Microservice]
-    Gateway --> NotificationService[Notification Microservice]
-
-    AdService --> DB1[SQL Server + EF Core]
-    PricingService --> DB2[SQL Server + EF Core]
-    PaymentService --> DB3[SQL Server]
-    NotificationService --> Cache[Redis]
-
-    AdService --> ES[Elasticsearch]
-    Logs --> ESLogs[Elastic + Serilog]
-    Media --> MinIO[Object Storage]
-```
+![Architecture Diagram](https://kroki.io/mermaid/svg/eNqFj8FOwzAQRO98xd5RhYB7pRBSVCmhpTlaOWydJVnk2si2QJX68TixU7VQUZ-843nj2c7iZw_l5gbCyRWT9mJhjfakW7iDymxZUQOz2fyQrZeQo1LuAC_o6Rv3YpDSvRkT0jD4IWtrsl8sSWStg4qlNS4Kf71ry5J1NwFpvAbhfhf6HqE4XoFejed3lujZ6Ik81X7hI3_cZEx4froX9VsJg0YWbqFYQG5s-ut8kwQ8_AecbZGAxxMg2i70Hr05yp7Ehlp2F9sWtSgUOs_SEVrZx7TSdC49D9fJEroFlpXpoq0KsTj6KtbLlVhtP0h6qL2x2FHzAyEFuYk)
 
 ---
 
@@ -128,5 +90,3 @@ graph LR
 * **Team Leadership:** Mentoring, knowledge transfer, and enforcing best practices.
 * **DevOps & Cloud:** CI/CD, Docker, centralized logging, and scalable deployment strategies.
 * **Impact-Driven:** Achieved measurable improvements in performance, reliability, and user experience.
-
-Do you want me to do that next?
